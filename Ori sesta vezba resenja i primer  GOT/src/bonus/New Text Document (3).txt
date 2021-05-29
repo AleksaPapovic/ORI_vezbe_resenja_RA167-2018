@@ -1,0 +1,25 @@
+from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+from kmeans import KMeans2
+from dbscan import DBScan
+import numpy as np
+import pandas as pd
+from  tqdm import trange
+
+# --- UCITAVANJE I PRIKAZ IRIS DATA SETA --- #
+
+dataset  = pd.read_csv('dataset1.csv')
+iris_data = dataset.iloc[: , [1,2,3,4]].values
+
+
+plt.figure()
+for i in trange(50):
+        plt.scatter(iris_data[i, 0], iris_data[i, 1])
+        plt.scatter(iris_data[i, 0], iris_data[i, 2])
+        plt.scatter(iris_data[i, 0], iris_data[i, 3])
+        print(iris_data[i,1])
+        print(iris_data[i,2])
+        print(iris_data[i,3])
+plt.xlabel('Sepal width')
+plt.ylabel('Petal length')
+plt.show()
